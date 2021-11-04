@@ -2,4 +2,7 @@
     <string name="app_name">OrderApp</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+
+    <string name="search">Search</string>
+    <string name="find_text">Find\nyour Best\nFood</string>
 </resources>
