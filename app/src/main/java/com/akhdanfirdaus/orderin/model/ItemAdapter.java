@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ItemAdapter  extends RecyclerView.Adapter<ItemAdapter.ListViewHolder>{
     final private ArrayList<Item> listItem;
 
-    ItemAdapter(ArrayList<Item> listItem) {
+    public ItemAdapter(ArrayList<Item> listItem) {
         this.listItem = listItem;
     }
 
