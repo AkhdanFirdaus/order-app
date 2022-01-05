@@ -41,8 +41,8 @@ public class ItemAdapter  extends RecyclerView.Adapter<ItemAdapter.ListViewHolde
         holder.price.setText("Rp. " + item.getPrice());
 
         String PACKAGE_NAME = holder.photo.getContext().getPackageName();
-        int imgId = holder.photo.getContext().getResources().getIdentifier(PACKAGE_NAME+":drawable/" + item.getPhoto() , null, null);
-        holder.photo.setImageBitmap(BitmapFactory.decodeResource(holder.photo.getContext().getResources(),imgId));
+        int imageResource = holder.photo.getContext().getResources().getIdentifier("@drawable/" + item.getPhoto(), null, PACKAGE_NAME);
+        holder.photo.setBackground(holder.photo.getContext().getResources().getDrawable(imageResource));
     }
 
     @Override

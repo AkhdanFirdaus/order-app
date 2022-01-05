@@ -34,9 +34,8 @@ public class DetailActivity extends AppCompatActivity {
             TextView priceView = findViewById(R.id.item_price);
             TextView descriptionView = findViewById(R.id.item_description);
 
-            String PACKAGE_NAME = getPackageName();
-            int imgId = getResources().getIdentifier(PACKAGE_NAME+":drawable/" + item.getPhoto() , null, null);
-            photoView.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
+            int imageResource = getResources().getIdentifier("@drawable/" + item.getPhoto(), null, getPackageName());
+            photoView.setBackground(getResources().getDrawable(imageResource));
 
             nameView.setText(item.getName());
             priceView.setText("Rp. " + item.getPrice());
