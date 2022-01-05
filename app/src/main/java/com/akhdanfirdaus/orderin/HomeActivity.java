@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.akhdanfirdaus.orderin.model.DataSource;
 import com.akhdanfirdaus.orderin.model.Item;
@@ -30,6 +31,12 @@ public class HomeActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
+        if (currentUser != null) {
+            TextView title = findViewById(R.id.find_text);
+            title.setText("Halo!\n" + currentUser.getEmail());
+            title.setTextSize(18);
+        }
+
         ArrayList<Item> list = DataSource.getListItem(getApplicationContext());
         ItemAdapter adapter = new ItemAdapter(list);
 
@@ -42,13 +49,6 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_action_menu, menu);
         return true;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem profile = menu.getItem(R.id.menu_profile);
-        profile.setTitle(currentUser.getEmail());
-        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
