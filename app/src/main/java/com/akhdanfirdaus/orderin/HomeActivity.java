@@ -40,10 +40,15 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem profile = findViewById(R.id.menu_profile);
-        profile.setTitle(currentUser.getEmail());
         getMenuInflater().inflate(R.menu.toolbar_action_menu, menu);
         return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem profile = menu.getItem(R.id.menu_profile);
+        profile.setTitle(currentUser.getEmail());
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override

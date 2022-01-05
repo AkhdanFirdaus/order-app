@@ -1,6 +1,5 @@
 package com.akhdanfirdaus.orderin;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,12 +8,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -39,18 +33,15 @@ public class MainActivity extends AppCompatActivity {
             String password = passwordView.getText().toString();
 
             mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Log.d("FirebaseAuthTag", "signInWithEmail:success");
-                                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                                startActivity(intent);
-                                MainActivity.this.finish();
-                            } else {
-                                Log.w("FirebaseAuthTag", "signInWithEmail:failure", task.getException());
-                                Toast.makeText(getApplicationContext(), "Authentication failed", Toast.LENGTH_SHORT).show();
-                            }
+                    .addOnCompleteListener(this, task -> {
+                        if (task.isSuccessful()) {
+                            Log.d("FirebaseAuthTag", "signInWithEmail:success");
+                            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                            startActivity(intent);
+                            this.finish();
+                        } else {
+                            Log.w("FirebaseAuthTag", "signInWithEmail:failure", task.getException());
+                            Toast.makeText(getApplicationContext(), "Authentication failed", Toast.LENGTH_SHORT).show();
                         }
                     });
         });
@@ -60,16 +51,13 @@ public class MainActivity extends AppCompatActivity {
             String password = regPasswordView.getText().toString();
 
             mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Log.d("FirebaseAuthTag", "createUserWithEmailAndPassord:success");
-                                Toast.makeText(getApplicationContext(), "Berhasil Registrasi", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Log.w("FirebaseAuthTag", "signInWithEmail:failure", task.getException());
-                                Toast.makeText(getApplicationContext(), "Authentication failed", Toast.LENGTH_SHORT).show();
-                            }
+                    .addOnCompleteListener(this, task -> {
+                        if (task.isSuccessful()) {
+                            Log.d("FirebaseAuthTag", "createUserWithEmailAndPassword:success");
+                            Toast.makeText(getApplicationContext(), "Berhasil Registrasi", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Log.w("FirebaseAuthTag", "signInWithEmail:failure", task.getException());
+                            Toast.makeText(getApplicationContext(), "Authentication failed", Toast.LENGTH_SHORT).show();
                         }
                     });
         });
