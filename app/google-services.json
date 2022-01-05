@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "672900874277",
+    "project_id": "orderapp-ed2e9",
+    "storage_bucket": "orderapp-ed2e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672900874277:android:4119b06863950a5b00ffcc",
+        "android_client_info": {
+          "package_name": "com.akhdanfirdaus.orderin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672900874277-l9d91166ef5nh4ri13u701jcqqqhs8kv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaPgqC0kTpZjkFQnRX9iJDGhyRBh5A-ZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672900874277-l9d91166ef5nh4ri13u701jcqqqhs8kv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
