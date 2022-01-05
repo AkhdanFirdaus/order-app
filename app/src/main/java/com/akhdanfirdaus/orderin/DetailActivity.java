@@ -35,10 +35,9 @@ public class DetailActivity extends AppCompatActivity {
             TextView descriptionView = findViewById(R.id.item_description);
 
             String PACKAGE_NAME = getPackageName();
-            InputStream ims = getClass().getResourceAsStream(PACKAGE_NAME + ":drawable-v24/" + "batagor");
-            Drawable image = Drawable.createFromStream(ims, null);
-            photoView.setBackground(image);
-            
+            int imgId = getResources().getIdentifier(PACKAGE_NAME+":drawable/" + item.getPhoto() , null, null);
+            photoView.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
+
             nameView.setText(item.getName());
             priceView.setText("Rp. " + item.getPrice());
             descriptionView.setText(item.getDescription());

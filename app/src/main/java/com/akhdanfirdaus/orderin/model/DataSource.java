@@ -11,7 +11,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class DataSource extends SQLiteOpenHelper {
-    private static final String DBNAME = "orderapp2";
+    private static final String DBNAME = "orderapp";
     private static final int DBVER = 1;
 
     public DataSource(Context context) {
@@ -34,11 +34,11 @@ public class DataSource extends SQLiteOpenHelper {
 
     public void insertDummyData() {
         ArrayList<Item> list = new ArrayList<>();
-        list.add(new Item(1, "Batagor", 10000, "Batagor merupakan nama makanan dari singkatan bakso, tahu, dan goreng. Makanan khas Sunda ini adalah adaptasi dari hidangan Tionghoa-Indonesia.", "batagor.jpg"));
-        list.add(new Item(2, "Nasi Goreng", 15000, "Nasi goreng adalah sebuah makanan berupa nasi yang digoreng dan diaduk dalam minyak goreng, margarin, atau mentega. Biasanya ditambah kecap manis, bawang merah, bawang putih, asam jawa, lada dan bumbu-bumbu lainnya; seperti telur, ayam, dan kerupuk", "nasigoreng.jpg"));
-        list.add(new Item(3, "Cireng", 2000, "Cireng adalah makanan ringan yang berasal dari daerah Sunda yang dibuat dengan cara menggoreng campuran adonan yang berbahan utama tepung kanji atau tapioka.", "cireng.jpg"));
-        list.add(new Item(4, "Donat", 2000, "Donat adalah penganan yang digoreng, dibuat dari adonan tepung terigu, gula, telur, dan mentega. Donat yang paling umum adalah donat berbentuk cincin dengan lubang di tengah dan donat berbentuk bundar dengan isian manis, seperti selai, jelly, krim, dan custard.", "donut.jpg"));
-        list.add(new Item(5, "Mie Goreng", 5000, "Mi goreng berarti \"mi yang digoreng\" adalah makanan yang berasal dari Indonesia yang populer dan juga digemari di Malaysia, dan Singapura.", "mie_goreng.jpg"));
+        list.add(new Item(1, "Batagor", 10000, "Batagor merupakan nama makanan dari singkatan bakso, tahu, dan goreng. Makanan khas Sunda ini adalah adaptasi dari hidangan Tionghoa-Indonesia.", "batagor"));
+        list.add(new Item(2, "Nasi Goreng", 15000, "Nasi goreng adalah sebuah makanan berupa nasi yang digoreng dan diaduk dalam minyak goreng, margarin, atau mentega. Biasanya ditambah kecap manis, bawang merah, bawang putih, asam jawa, lada dan bumbu-bumbu lainnya; seperti telur, ayam, dan kerupuk", "nasigoreng"));
+        list.add(new Item(3, "Cireng", 2000, "Cireng adalah makanan ringan yang berasal dari daerah Sunda yang dibuat dengan cara menggoreng campuran adonan yang berbahan utama tepung kanji atau tapioka.", "cireng"));
+        list.add(new Item(4, "Donat", 2000, "Donat adalah penganan yang digoreng, dibuat dari adonan tepung terigu, gula, telur, dan mentega. Donat yang paling umum adalah donat berbentuk cincin dengan lubang di tengah dan donat berbentuk bundar dengan isian manis, seperti selai, jelly, krim, dan custard.", "donut"));
+        list.add(new Item(5, "Mie Goreng", 5000, "Mi goreng berarti \"mi yang digoreng\" adalah makanan yang berasal dari Indonesia yang populer dan juga digemari di Malaysia, dan Singapura.", "mie_goreng"));
 
         for (Item item : list) {
             insertData(item);

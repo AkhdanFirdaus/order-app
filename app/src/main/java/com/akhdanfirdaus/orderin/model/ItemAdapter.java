@@ -2,6 +2,7 @@ package com.akhdanfirdaus.orderin.model;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,9 +40,9 @@ public class ItemAdapter  extends RecyclerView.Adapter<ItemAdapter.ListViewHolde
         holder.name.setText(item.getName());
         holder.price.setText("Rp. " + item.getPrice());
 
-        InputStream ims = getClass().getResourceAsStream("/drawable/" + item.getPhoto());
-        Drawable image = Drawable.createFromStream(ims, null);
-        holder.photo.setBackground(image);
+        String PACKAGE_NAME = holder.photo.getContext().getPackageName();
+        int imgId = holder.photo.getContext().getResources().getIdentifier(PACKAGE_NAME+":drawable/" + item.getPhoto() , null, null);
+        holder.photo.setImageBitmap(BitmapFactory.decodeResource(holder.photo.getContext().getResources(),imgId));
     }
 
     @Override
