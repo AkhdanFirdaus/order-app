@@ -62,7 +62,7 @@ public class ItemAdapter  extends RecyclerView.Adapter<ItemAdapter.ListViewHolde
 
         @Override
         public void onClick(View view) {
-            int selected = getLayoutPosition();
+            int selected = listItem.get(getLayoutPosition()).id;
             Intent intent = new Intent(view.getContext(), DetailActivity.class);
             intent.putExtra("id", selected);
             view.getContext().startActivity(intent);

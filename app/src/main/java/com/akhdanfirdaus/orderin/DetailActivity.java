@@ -2,6 +2,7 @@ package com.akhdanfirdaus.orderin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -33,10 +34,11 @@ public class DetailActivity extends AppCompatActivity {
             TextView priceView = findViewById(R.id.item_price);
             TextView descriptionView = findViewById(R.id.item_description);
 
-            InputStream ims = getClass().getResourceAsStream("/drawable/" + item.getPhoto());
+            String PACKAGE_NAME = getPackageName();
+            InputStream ims = getClass().getResourceAsStream(PACKAGE_NAME + ":drawable-v24/" + "batagor");
             Drawable image = Drawable.createFromStream(ims, null);
             photoView.setBackground(image);
-
+            
             nameView.setText(item.getName());
             priceView.setText("Rp. " + item.getPrice());
             descriptionView.setText(item.getDescription());
