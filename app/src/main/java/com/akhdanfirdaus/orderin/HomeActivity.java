@@ -37,7 +37,8 @@ public class HomeActivity extends AppCompatActivity {
             title.setTextSize(18);
         }
 
-        ArrayList<Item> list = DataSource.getListItem(getApplicationContext());
+        DataSource data = new DataSource(this);
+        ArrayList<Item> list = data.readData();
         ItemAdapter adapter = new ItemAdapter(list);
 
         RecyclerView rv = findViewById(R.id.item_list_rv);

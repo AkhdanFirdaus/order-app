@@ -1,6 +1,8 @@
 package com.akhdanfirdaus.orderin.model;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.akhdanfirdaus.orderin.DetailActivity;
 import com.akhdanfirdaus.orderin.R;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class ItemAdapter  extends RecyclerView.Adapter<ItemAdapter.ListViewHolder>{
@@ -34,7 +38,10 @@ public class ItemAdapter  extends RecyclerView.Adapter<ItemAdapter.ListViewHolde
         Item item = listItem.get(position);
         holder.name.setText(item.getName());
         holder.price.setText("Rp. " + item.getPrice());
-        holder.photo.setBackground(item.getPhoto());
+
+        InputStream ims = getClass().getResourceAsStream("/drawable/" + item.getPhoto());
+        Drawable image = Drawable.createFromStream(ims, null);
+        holder.photo.setBackground(image);
     }
 
     @Override
